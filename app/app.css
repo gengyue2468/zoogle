@@ -50,33 +50,92 @@
     "Google Sans", "Roboto", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-  /* 品牌四色（Google Logo） */
   --color-zoogle-blue: #4285f4;
   --color-zoogle-red: #ea4335;
   --color-zoogle-yellow: #fbbc05;
   --color-zoogle-green: #34a853;
 
-  --color-zoogle-bg: light-dark(#ffffff, #1F1F1F);
-  --color-zoogle-surface: light-dark(#f8f9fa, #4d5156);
-  --color-zoogle-surface-elevated: light-dark(#ffffff, #2f2f2f);
-  --color-zoogle-surface-footer: light-dark(#f2f2f2, #171717);
-  --color-zoogle-border: light-dark(#dadce0, #5f6368);
+  --color-zoogle-bg: #ffffff;
+  --color-zoogle-surface: #f1f3f4;
+  --color-zoogle-surface-elevated: #f1f3f4;
+  --color-zoogle-surface-footer: #f1f3f4;
+  --color-zoogle-border: #bdc1c6;
 
-  --color-zoogle-text: light-dark(#212121, #e8eaed);
-  --color-zoogle-text-secondary: light-dark(#5f6368, #9aa0a6);
-  --color-zoogle-text-footer: light-dark(#70757a, #9aa0a6);
+  --color-zoogle-text: #202124;
+  --color-zoogle-text-secondary: #4d5156;
+  --color-zoogle-text-footer: #5f6368;
 
-  --color-zoogle-link: light-dark(#1a73e8, #8ab4f8);
-  --color-zoogle-link-visited: light-dark(#681da8, #a78bfa);
-  --color-zoogle-button-bg: light-dark(#f8f9fa, #303134);
-  --color-zoogle-button-border: light-dark(#dadce0, #5f6368);
-  --color-zoogle-button-text: light-dark(#3c4043, #e8eaed);
+  --color-zoogle-link: #1a73e8;
+  --color-zoogle-link-visited: #681da8;
+  --color-zoogle-button-bg: #f8f9fa;
+  --color-zoogle-button-border: #bdc1c6;
+  --color-zoogle-button-text: #202124;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --color-zoogle-bg: #1f1f1f;
+    --color-zoogle-surface: #4d5156;
+    --color-zoogle-surface-elevated: #2f2f2f;
+    --color-zoogle-surface-footer: #171717;
+    --color-zoogle-border: #5f6368;
+
+    --color-zoogle-text: #e8eaed;
+    --color-zoogle-text-secondary: #9aa0a6;
+    --color-zoogle-text-footer: #9aa0a6;
+
+    --color-zoogle-link: #8ab4f8;
+    --color-zoogle-link-visited: #a78bfa;
+    --color-zoogle-button-bg: #303134;
+    --color-zoogle-button-border: #5f6368;
+    --color-zoogle-button-text: #e8eaed;
+  }
+}
+
+html.dark {
+  color-scheme: dark;
+  --color-zoogle-bg: #1f1f1f;
+  --color-zoogle-surface: #4d5156;
+  --color-zoogle-surface-elevated: #2f2f2f;
+  --color-zoogle-surface-footer: #171717;
+  --color-zoogle-border: #5f6368;
+
+  --color-zoogle-text: #e8eaed;
+  --color-zoogle-text-secondary: #9aa0a6;
+  --color-zoogle-text-footer: #9aa0a6;
+
+  --color-zoogle-link: #8ab4f8;
+  --color-zoogle-link-visited: #a78bfa;
+  --color-zoogle-button-bg: #303134;
+  --color-zoogle-button-border: #5f6368;
+  --color-zoogle-button-text: #e8eaed;
+}
+
+html.light {
+  color-scheme: light;
+  --color-zoogle-bg: #ffffff;
+  --color-zoogle-surface: #f1f3f4;
+  --color-zoogle-surface-elevated: #f8f9fa;
+  --color-zoogle-surface-footer: #f1f3f4;
+  --color-zoogle-border: #bdc1c6;
+
+  --color-zoogle-text: #202124;
+  --color-zoogle-text-secondary: #4d5156;
+  --color-zoogle-text-footer: #5f6368;
+
+  --color-zoogle-link: #1a73e8;
+  --color-zoogle-link-visited: #681da8;
+  --color-zoogle-button-bg: #f8f9fa;
+  --color-zoogle-button-border: #bdc1c6;
+  --color-zoogle-button-text: #202124;
 }
 
 html,
 body {
   @apply bg-zoogle-bg text-zoogle-text;
+}
 
+html:not(.light) {
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
@@ -114,7 +173,6 @@ body {
   }
 }
 
-/* Google AI 风格：仅边框渐变流动（@property + 双 background，无旋转整元素） */
 @property --ai-angle {
   syntax: "<angle>";
   initial-value: 0deg;
@@ -144,7 +202,7 @@ body {
   transition: box-shadow 0.2s;
 }
 
-.ai-mode-border:hover {
+.ai-mode-border {
   border-color: transparent;
   background:
     linear-gradient(var(--color-zoogle-surface), var(--color-zoogle-surface)) padding-box,
@@ -157,6 +215,10 @@ body {
       var(--color-zoogle-blue)
     ) border-box;
   animation: ai-border-spin 2.5s linear infinite;
+}
+
+.ai-mode-border:hover {
+  animation: ai-border-spin 1.25s linear infinite;
 }
 
 .ai-mode-border:focus-visible {

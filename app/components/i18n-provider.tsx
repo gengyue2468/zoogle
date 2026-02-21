@@ -24,8 +24,6 @@ export default function I18nProvider({
   children: React.ReactNode;
 }) {
   const { i18n } = useTranslation();
-
-  // 水合后再根据 localStorage / navigator 切换语言，避免首屏 server/client 不一致
   useEffect(() => {
     const lng = detectClientLanguage();
     if (lng !== i18n.language) {

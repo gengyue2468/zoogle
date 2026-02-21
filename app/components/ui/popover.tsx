@@ -22,7 +22,7 @@ export default function Popover({ children, content }: PopoverProps) {
         render={(props) => React.cloneElement(triggerChild, props)}
       />
       <BasePopover.Portal>
-        <BasePopover.Positioner side="bottom" sideOffset={8} align="start">
+        <BasePopover.Positioner side="bottom" sideOffset={8} align="center">
           <BasePopover.Popup className={popupClasses}>
             {content}
           </BasePopover.Popup>

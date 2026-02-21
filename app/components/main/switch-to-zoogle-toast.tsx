@@ -68,7 +68,7 @@ function SwitchToZoogleToastList() {
 
   return (
     <Toast.Portal>
-      <Toast.Viewport className="fixed bottom-32 md:bottom-16 right-4 md:right-0 z-50 flex w-full max-w-sm md:max-w-md flex-col gap-2 outline-none [--base-viewport-padding:0]">
+      <Toast.Viewport className="fixed bottom-8 md:bottom-16 left-0 right-0 mx-auto md:mx-0 md:left-auto md:right-0 z-50 flex w-full max-w-sm md:max-w-md flex-col gap-2 outline-none [--base-viewport-padding:0]">
         {toasts.map((toast) => (
           <Toast.Root key={toast.id} toast={toast} className="w-full">
             {(toast.data as { type?: string })?.type === "switch-to-zoogle" ? (
@@ -103,13 +103,17 @@ function SwitchToZoogleToastContent({ toast }: { toast: { id: string } }) {
           <div aria-hidden>
             <img
               src="/static/nick.jpeg"
-              alt="Nick the Zoogle mascot"
+              alt={t("toast.nickMascotAlt")}
               className="size-12 rounded-full object-center object-cover"
             />
           </div>
           <div className="flex-1 min-w-0">
-            <Toast.Title className="text-xl font-medium text-zoogle-text block" />
-            <Toast.Description className="text-base text-zoogle-text-secondary mt-0.5 block" />
+            <p className="text-xl font-medium text-zoogle-text block">
+              {t("toast.switchToChromia")}
+            </p>
+            <p className="text-base text-zoogle-text-secondary mt-0.5 block">
+              {t("toast.chromiaDescription")}
+            </p>
           </div>
           <Toast.Close
             className="shrink-0 rounded-full p-1.5 text-zoogle-text-secondary hover:bg-zoogle-surface hover:text-zoogle-text"

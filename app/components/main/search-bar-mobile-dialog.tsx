@@ -71,9 +71,11 @@ export default function SearchBarMobileDialog({
               variant="fullscreen"
             />
           </>
-        ) : null}
-        <div className="px-4 pt-4 pb-6">
-          <TrendingSearches />
+        ) : (
+          null
+        )}
+        <div className="pt-2 pb-6">
+          <TrendingSearches variant="inline" />
         </div>
       </div>
     </div>

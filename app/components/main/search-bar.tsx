@@ -113,9 +113,13 @@ export default function SearchBar() {
   return (
     <div className="relative w-full" ref={containerRef}>
       <div
-        className={`rounded-3xl border border-zoogle-border overflow-hidden ${showDropdown ? "bg-zoogle-surface-elevated shadow-lg" : "bg-zoogle-surface shadow-xs"}`}
+        className={`overflow-visible border border-zoogle-border ${
+          showDropdown
+            ? "rounded-t-3xl border-b-0 bg-zoogle-surface-elevated shadow-lg"
+            : "rounded-3xl bg-zoogle-surface shadow-xs"
+        }`}
       >
-        <div className={`relative ${showDropdown && 'border-b border-zoogle-border'}`}>
+        <div className="relative">
           <div className="absolute left-1.5 top-1/2 -translate-y-1/2 z-10">
             <Tooltip content={t("search.upload")} triggerAs="span">
               <Select
@@ -185,24 +189,26 @@ export default function SearchBar() {
         </div>
 
         {showDropdown && (
-          <SearchHistoryList
-            history={history}
-            onSelect={(item) => {
-              setSearchValue(item);
-              setHistoryOpen(false);
-            }}
-            onRemove={removeFromHistory}
-            onClear={() => {
-              clearHistory();
-              setHistoryOpen(false);
-            }}
-            variant="dropdown"
-            trendingItems={desktopTrending}
-            onTrendingSelect={(item) => {
-              setSearchValue(item);
-              setHistoryOpen(false);
-            }}
-          />
+          <div className="absolute left-0 right-0 top-full z-10 border border-t border-zoogle-border rounded-b-3xl bg-zoogle-surface-elevated shadow-lg overflow-hidden">
+            <SearchHistoryList
+              history={history}
+              onSelect={(item) => {
+                setSearchValue(item);
+                setHistoryOpen(false);
+              }}
+              onRemove={removeFromHistory}
+              onClear={() => {
+                clearHistory();
+                setHistoryOpen(false);
+              }}
+              variant="dropdown"
+              trendingItems={desktopTrending}
+              onTrendingSelect={(item) => {
+                setSearchValue(item);
+                setHistoryOpen(false);
+              }}
+            />
+          </div>
         )}
       </div>
 

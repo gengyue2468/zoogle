@@ -69,14 +69,25 @@
     "business": "Business",
     "howSearchWorks": "How Search works",
     "privacy": "Privacy",
-    "terms": "Terms"
+    "terms": "Terms",
+    "settings": "Settings"
+  },
+  "settings": {
+    "searchEngine": "Search engine",
+    "searchEngineGoogle": "Google",
+    "searchEngineDuckDuckGo": "DuckDuckGo",
+    "searchEngineBing": "Bing",
+    "darkTheme": "Dark theme",
+    "darkThemeEnabled": "Enabled",
+    "darkThemeDisabled": "Disabled"
   },
   "toast": {
     "switchToChromia": "Switch to Chromia",
     "chromiaDescription": "Faster. Safer. Built for every species.",
     "getChromia": "Get Chromia",
     "notNow": "Not now",
-    "close": "Close"
+    "close": "Close",
+    "nickMascotAlt": "Nick the Zoogle mascot"
   },
   "apps": {
     "loadingError": "Sorry, something went wrong",

@@ -3,23 +3,20 @@ import SearchButtons from "./search-buttons";
 import TrendingSearches from "./trending-searches";
 import { useSearchStore } from "../../store/search";
 import { useSearchHistoryStore } from "../../store/search-history";
+import { useSettingsStore } from "../../store/settings";
 import Hero from "./hero";
 import LanguageSwitcher from "../language-switcher";
-
-const GOOGLE_SEARCH_URL = "https://www.google.com/search";
 
 export default function Main() {
   const searchValue = useSearchStore((s) => s.searchValue);
   const addHistory = useSearchHistoryStore((s) => s.addHistory);
+  const getSearchUrl = useSettingsStore((s) => s.getSearchUrl);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const q = searchValue.trim();
     addHistory(q);
-    const params = new URLSearchParams(q ? { q } : undefined);
-    window.location.href = params.toString()
-      ? `${GOOGLE_SEARCH_URL}?${params}`
-      : GOOGLE_SEARCH_URL;
+    window.location.href = getSearchUrl({ q });
   };
 
   return (

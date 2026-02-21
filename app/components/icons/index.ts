@@ -16,6 +16,9 @@ import { ArrowleftIcon } from "./arrow-left";
 import { XIcon } from "./x";
 import { EmailIcon } from "./email";
 import { GitHubIcon } from "./github";
+import { GoogleIcon } from "./google";
+import { BingIcon } from "./bing";
+import { DuckduckgoIcon } from "./ddg";
 
 export {
   AppsIcon,
@@ -36,4 +39,7 @@ export {
   XIcon,
   GitHubIcon,
   EmailIcon,
+  GoogleIcon,
+  BingIcon,
+  DuckduckgoIcon,
 };

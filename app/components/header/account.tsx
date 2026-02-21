@@ -12,7 +12,7 @@ interface ZoogleAccountProps {
 export default function ZoogleAccount({ accountInfo }: ZoogleAccountProps) {
   const { t } = useTranslation();
   return (
-    <div className="flex flex-col items-center gap-2 p-2 w-90 h-fit">
+    <div className="flex flex-col items-center gap-2 p-2 w-86 md:w-90 h-fit">
       <p className="text-center">{accountInfo.email}</p>
       <img
         src={accountInfo.avatar}

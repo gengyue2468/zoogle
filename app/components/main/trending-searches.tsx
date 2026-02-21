@@ -15,7 +15,12 @@ function countByHeight(height: number): number {
   return Math.min(12, Math.max(4, count));
 }
 
-export default function TrendingSearches() {
+interface TrendingSearchesProps {
+  /** 在移动端弹窗内展示时传 true，与搜索历史列表样式一致；主屏独立展示时为 false（默认） */
+  variant?: "standalone" | "inline";
+}
+
+export default function TrendingSearches({ variant = "standalone" }: TrendingSearchesProps) {
   const { t } = useTranslation();
   const addHistory = useSearchHistoryStore((s) => s.addHistory);
   const fullList = useTrendingSearches();
@@ -29,24 +34,45 @@ export default function TrendingSearches() {
     setItems(shuffleTrendingItems(fullList, count));
   }, [fullList]);
 
+  const isInline = variant === "inline";
+
   return (
-    <div className="md:hidden w-full mt-4 mb-4">
-      <p className="text-xl font-medium mb-2 px-1">{t("search.trendingSearches")}</p>
+    <div className="md:hidden w-full">
+      <p
+        className={
+          isInline
+            ? "text-sm text-zoogle-text-secondary px-4 pt-3 pb-1"
+            : "text-xl font-medium mb-2 px-1 mt-4"
+        }
+      >
+        {t("search.trendingSearches")}
+      </p>
       <div className="flex flex-col overflow-hidden">
-        {items.map((query, i) => (
+        {items.map((query) => (
           <a
             key={query}
             href={`${GOOGLE_SEARCH_URL}?q=${encodeURIComponent(query)}`}
             onClick={() => addHistory(query)}
-            className={`flex items-center gap-4 px-4 py-3 text-sm text-zoogle-button-text hover:bg-zoogle-surface transition-colors border-zoogle-border border-b`}
+            className={
+              isInline
+                ? "flex items-center gap-3 px-4 py-3 text-base text-zoogle-text hover:bg-zoogle-surface transition-colors cursor-pointer"
+                : "flex items-center gap-4 px-4 py-3 text-sm text-zoogle-button-text hover:bg-zoogle-surface transition-colors border-zoogle-border border-b cursor-pointer"
+            }
           >
-            <span>
-              <TrendIcon className="size-5" />
+            <TrendIcon
+              className={
+                isInline
+                  ? "size-5 text-zoogle-text-secondary shrink-0"
+                  : "size-5 shrink-0"
+              }
+            />
+            <span className={isInline ? "flex-1 min-w-0 truncate" : ""}>
+              {query}
             </span>
-            <span >{query}</span>
           </a>
         ))}
       </div>
+      {!isInline && <div className="mb-16" aria-hidden />}
     </div>
   );
 }

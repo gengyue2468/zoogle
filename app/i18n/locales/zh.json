@@ -69,14 +69,25 @@
     "business": "商务",
     "howSearchWorks": "Zoogle 搜索的运作方式",
     "privacy": "隐私权",
-    "terms": "条款"
+    "terms": "条款",
+    "settings": "设置"
+  },
+  "settings": {
+    "searchEngine": "搜索引擎",
+    "searchEngineGoogle": "Google",
+    "searchEngineDuckDuckGo": "DuckDuckGo",
+    "searchEngineBing": "Bing",
+    "darkTheme": "深色主题",
+    "darkThemeEnabled": "已启用",
+    "darkThemeDisabled": "未启用"
   },
   "toast": {
-    "switchToChromia": "切换到 Chromia",
-    "chromiaDescription": "更快、更安全，为每一个物种而打造。",
+    "switchToChromia": "试试 Chromia 浏览器",
+    "chromiaDescription": "更快、更安全，为每一种动物而打造。",
     "getChromia": "获取 Chromia",
-    "notNow": "暂时不用",
-    "close": "关闭"
+    "notNow": "暂不",
+    "close": "关闭",
+    "nickMascotAlt": "Zoogle 吉祥物 Nick"
   },
   "apps": {
     "loadingError": "抱歉，出了点问题",
