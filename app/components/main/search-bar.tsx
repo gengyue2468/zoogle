@@ -16,6 +16,7 @@ import SearchHistoryList from "./search-history-list";
 import SearchBarMobileDialog from "./search-bar-mobile-dialog";
 import { useSearchStore } from "../../store/search";
 import { useSearchHistoryStore } from "../../store/search-history";
+import { useSettingsStore } from "../../store/settings";
 import { useTrendingSearches } from "~/data/trending-searches";
 
 function useIsMobile() {
@@ -57,6 +58,7 @@ export default function SearchBar() {
     },
   ];
   const containerRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const [historyOpen, setHistoryOpen] = useState(false);
   const [mobileDialogOpen, setMobileDialogOpen] = useState(false);
   const isMobile = useIsMobile();
@@ -74,20 +76,27 @@ export default function SearchBar() {
   const openImageSearchPanel = useSearchStore((s) => s.openImageSearchPanel);
 
   const history = useSearchHistoryStore((s) => s.history);
+  const addHistory = useSearchHistoryStore((s) => s.addHistory);
   const removeFromHistory = useSearchHistoryStore((s) => s.removeFromHistory);
   const clearHistory = useSearchHistoryStore((s) => s.clearHistory);
+  const getSearchUrl = useSettingsStore((s) => s.getSearchUrl);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
+      const target = e.target as Node;
+      if (dropdownRef.current?.contains(target)) return;
       if (
         containerRef.current &&
-        !containerRef.current.contains(e.target as Node)
+        !containerRef.current.contains(target)
       ) {
         setHistoryOpen(false);
       }
     }
-    if (historyOpen) document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    if (historyOpen) {
+      document.addEventListener("mousedown", handleClickOutside, true);
+    }
+    return () =>
+      document.removeEventListener("mousedown", handleClickOutside, true);
   }, [historyOpen]);
 
   const hasContent = searchValue.trim() !== "";
@@ -189,23 +198,22 @@ export default function SearchBar() {
         </div>
 
         {showDropdown && (
-          <div className="absolute left-0 right-0 top-full z-10 border border-t border-zoogle-border rounded-b-3xl bg-zoogle-surface-elevated shadow-lg overflow-hidden">
+          <div
+            ref={dropdownRef}
+            className="absolute left-0 right-0 top-full z-10 border border-t border-zoogle-border rounded-b-3xl bg-zoogle-surface-elevated shadow-lg overflow-hidden"
+          >
             <SearchHistoryList
               history={history}
               onSelect={(item) => {
-                setSearchValue(item);
-                setHistoryOpen(false);
+                window.location.href = getSearchUrl({ q: item });
               }}
               onRemove={removeFromHistory}
-              onClear={() => {
-                clearHistory();
-                setHistoryOpen(false);
-              }}
+              onClear={() => clearHistory()}
               variant="dropdown"
               trendingItems={desktopTrending}
               onTrendingSelect={(item) => {
-                setSearchValue(item);
-                setHistoryOpen(false);
+                addHistory(item);
+                window.location.href = getSearchUrl({ q: item });
               }}
             />
           </div>

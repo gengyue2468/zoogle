@@ -13,8 +13,25 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import "./i18n";
 import I18nProvider from "./components/i18n-provider";
+import { GeoSearchDefault } from "./components/geo-search-default";
+import i18n from "./i18n";
 
 export const links: Route.LinksFunction = () => [];
+
+function getCountryFromRequest(request: Request): string | null {
+  const h = request.headers;
+  return (
+    h.get("cf-ipcountry") ??
+    h.get("x-vercel-ip-country") ??
+    h.get("x-nf-request-country") ??
+    null
+  );
+}
+
+export async function loader({ request }: Route.LoaderArgs) {
+  const countryCode = getCountryFromRequest(request);
+  return { countryCode: countryCode?.toUpperCase() ?? null };
+}
 
 const THEME_SCRIPT = `
 (function(){
@@ -32,7 +49,7 @@ const THEME_SCRIPT = `
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang={i18n.language}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -55,6 +72,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <I18nProvider>
+      <GeoSearchDefault />
       <Outlet />
     </I18nProvider>
   );
