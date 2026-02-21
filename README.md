@@ -1,87 +1,57 @@
-# Welcome to React Router!
+# Zoogle
 
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+A Google-style search homepage with a **Zootopia** theme — search the animal kingdom.
 
 ## Features
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+- **Search bar** — Desktop dropdown with search history + trending searches; mobile full-screen dialog
+- **ALL / IMAGES** — Mobile header tabs (like Google) to switch between web and image search
+- **Search history** — Persisted in localStorage, clearable
+- **Trending searches** — Zootopia-themed suggestions (Savanna Central, Tundratown, etc.)
+- **Share** — Copy link, share via X (Twitter), email, or open the [GitHub repo](https://github.com/gengyue2468/zoogle)
+- **i18n** — English & 简体中文 with language switcher
+- **SEO** — Meta, Open Graph, Twitter Card, JSON-LD (WebSite + SearchAction) for better indexing
+- **404** — Classic “That’s an error” style page with Zoogle branding
+
+## Tech Stack
+
+- [React](https://react.dev/) 19 + [React Router](https://reactrouter.com/) 7
+- [Vite](https://vite.dev/) 7 + [Tailwind CSS](https://tailwindcss.com/) 4
+- [Base UI](https://base-ui.com/) (Dialog, Tabs, Toast, Select, Tooltip, Popover)
+- [Zustand](https://zustand-demo.pmnd.rs/) (search state, search history)
+- [i18next](https://www.i18next.com/) (translations)
 
 ## Getting Started
 
-### Installation
-
-Install the dependencies:
-
 ```bash
+# install
 npm install
-```
 
-### Development
-
-Start the development server with HMR:
-
-```bash
+# dev
 npm run dev
-```
 
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
+# build
 npm run build
+
+# run production server
+npm start
 ```
 
-## Deployment
+Optional: set `VITE_SITE_ORIGIN` (e.g. `https://zoogle.example.com`) for canonical URLs and OG images.
 
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
+## Project Structure
 
 ```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
+app/
+  components/     # Header, Footer, Main, share/voice dialogs, search bar, etc.
+  routes/        # home.tsx
+  i18n/          # en & zh locales
+  seo.ts         # Meta, JSON-LD, default title/description
+  root.tsx       # Layout, ErrorBoundary
+public/
+  static/        # Images, 404 assets
 ```
 
-## Styling
+## License
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+MIT

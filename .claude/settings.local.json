@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install react-i18next i18next i18next-browser-languagedetector --save)",
+      "Bash(npm run typecheck)"
+    ]
+  }
+}

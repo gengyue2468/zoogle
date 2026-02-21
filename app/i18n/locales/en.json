@@ -1,0 +1,143 @@
+{
+  "language": {
+    "name": "English",
+    "switchTo": "English"
+  },
+  "header": {
+    "zmail": "Zmail",
+    "zmages": "Zmages",
+    "zoogleApps": "Zoogle Apps",
+    "zoogleAccount": "Zoogle Account",
+    "all": "ALL",
+    "images": "IMAGES"
+  },
+  "account": {
+    "hi": "Hi, {{name}}!",
+    "manageAccount": "Manage Your Zoogle Account",
+    "recoveryTitle": "Make sure you can always sign in",
+    "recoveryDescription": "A recovery phone will help if you forget your password",
+    "dismiss": "Dismiss",
+    "addRecoveryPhone": "Add Recovery Phone",
+    "addAccount": "Add Account",
+    "signOut": "Sign out"
+  },
+  "search": {
+    "placeholder": "Search Zoogle or type a URL",
+    "zoogleSearch": "Zoogle Search",
+    "imFeelingLucky": "I'm Feeling Lucky",
+    "trendingSearches": "Trending searches",
+    "searchHistory": "Search history",
+    "clearHistory": "Clear search history",
+    "uploadImage": "Upload image",
+    "uploadFile": "Upload file",
+    "upload": "Upload",
+    "clear": "Clear",
+    "searchByVoice": "Search by voice",
+    "searchByImage": "Search by image",
+    "aiMode": "AI Mode"
+  },
+  "voice": {
+    "listening": "Listening…",
+    "openingMicrophone": "Opening microphone…",
+    "errorTitle": "Sorry, something went wrong.",
+    "errorDescription": "We couldn't hear you."
+  },
+  "imageSearch": {
+    "title": "Search any image with Zoogle Lens",
+    "dragOrUpload": "Drag an image here or",
+    "uploadLink": "upload a file",
+    "or": "OR",
+    "pasteLink": "Paste image link",
+    "search": "Search",
+    "close": "Close image search panel"
+  },
+  "share": {
+    "title": "Share Zoogle",
+    "description": "Share this link with your friends",
+    "copyLink": "Copy link",
+    "copied": "Copied",
+    "or": "or",
+    "shareViaX": "Share via X",
+    "shareViaEmail": "Share via email",
+    "viewOnGitHub": "View on GitHub",
+    "close": "Close"
+  },
+  "footer": {
+    "location": "Zootopia",
+    "about": "About",
+    "advertising": "Advertising",
+    "business": "Business",
+    "howSearchWorks": "How Search works",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "toast": {
+    "switchToChromia": "Switch to Chromia",
+    "chromiaDescription": "Faster. Safer. Built for every species.",
+    "getChromia": "Get Chromia",
+    "notNow": "Not now",
+    "close": "Close"
+  },
+  "apps": {
+    "loadingError": "Sorry, something went wrong",
+    "retry": "Retry"
+  },
+  "hero": {
+    "title": "Zoogle",
+    "share": "Share"
+  },
+  "trending": {
+    "searches": [
+      "ZPD traffic report this morning",
+      "Tundratown snowstorm alert",
+      "Sahara Square heat advisory",
+      "where to buy jumbo elephant shoes",
+      "Burrowtown carrot futures price",
+      "is Little Rodentia safe at night",
+      "best predator-prey support groups",
+      "how to file complaint with Chief Bogo",
+      "night howler sightings downtown",
+      "Gazelle surprise concert rumors",
+      "Zootopia Metro delay explanation",
+      "Clawhauser donut discount code",
+      "Mr Big daughter wedding photos",
+      "legal size apartment for polar bears",
+      "can foxes adopt rabbits legally",
+      "ZPD recruitment requirements 2026",
+      "Arctic Circle cooling tax update",
+      "Savanna Central rent increase",
+      "who designed Zootopia skyline",
+      "Rainforest District humidity complaint",
+      "is hibernation leave paid",
+      "best brunch in Sahara Square",
+      "Zootopia skyline at night photos",
+      "predator curfew law fact check",
+      "how to report missing mammal",
+      "Zootopia election candidates",
+      "Bellwether policy archives",
+      "junior ranger program sign up",
+      "where to recycle shed fur",
+      "inter-species roommate advice",
+      "fox-friendly insurance plans",
+      "rabbit population statistics",
+      "Zootopia transit paw pass balance",
+      "DIY soundproof burrow tips",
+      "how tall is Mayor Lionheart really",
+      "night howler black market rumors",
+      "best claw salon near me",
+      "Zootopia food truck festival",
+      "is Tundratown good for small mammals",
+      "moving permit large mammals",
+      "ZPD scanner live feed",
+      "how to avoid skunk spray incidents",
+      "animal size zoning regulations",
+      "Little Rodentia flood warning",
+      "Savanna Central rooftop bars",
+      "Zootopia tech startups hiring",
+      "predator meditation classes",
+      "Zootopia skyline drone ban",
+      "where to buy glow carrot juice",
+      "Nick Wilde business license lookup"
+    ]
+  }
+}

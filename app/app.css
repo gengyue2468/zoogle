@@ -1,15 +1,165 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/google-sans@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/google-sans@latest/latin-400-normal.woff) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/google-sans@latest/latin-500-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/google-sans@latest/latin-500-normal.woff) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/google-sans@latest/latin-600-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/google-sans@latest/latin-600-normal.woff) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/google-sans@latest/latin-700-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/google-sans@latest/latin-700-normal.woff) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Roboto Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/roboto:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+  --font-sans:
+    "Google Sans", "Roboto", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* 品牌四色（Google Logo） */
+  --color-zoogle-blue: #4285f4;
+  --color-zoogle-red: #ea4335;
+  --color-zoogle-yellow: #fbbc05;
+  --color-zoogle-green: #34a853;
+
+  --color-zoogle-bg: light-dark(#ffffff, #1F1F1F);
+  --color-zoogle-surface: light-dark(#f8f9fa, #4d5156);
+  --color-zoogle-surface-elevated: light-dark(#ffffff, #2f2f2f);
+  --color-zoogle-surface-footer: light-dark(#f2f2f2, #171717);
+  --color-zoogle-border: light-dark(#dadce0, #5f6368);
+
+  --color-zoogle-text: light-dark(#212121, #e8eaed);
+  --color-zoogle-text-secondary: light-dark(#5f6368, #9aa0a6);
+  --color-zoogle-text-footer: light-dark(#70757a, #9aa0a6);
+
+  --color-zoogle-link: light-dark(#1a73e8, #8ab4f8);
+  --color-zoogle-link-visited: light-dark(#681da8, #a78bfa);
+  --color-zoogle-button-bg: light-dark(#f8f9fa, #303134);
+  --color-zoogle-button-border: light-dark(#dadce0, #5f6368);
+  --color-zoogle-button-text: light-dark(#3c4043, #e8eaed);
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  @apply bg-zoogle-bg text-zoogle-text;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+}
+
+.root {
+  isolation: isolate;
+}
+
+.roboto {
+  font-family: "Roboto Variable", sans-serif;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes waveform-white-pulse {
+
+  0%,
+  100% {
+    transform: scale(0.75);
+    opacity: 1.0;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 1.0;
+  }
+}
+
+/* Google AI 风格：仅边框渐变流动（@property + 双 background，无旋转整元素） */
+@property --ai-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes ai-border-spin {
+  to {
+    --ai-angle: 360deg;
+  }
+}
+
+.ai-mode-border {
+  --ai-angle: 0deg;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  border-radius: 9999px;
+  border: 2px solid var(--color-zoogle-border);
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--color-zoogle-text);
+  text-decoration: none;
+  background: var(--color-zoogle-surface);
+  transition: box-shadow 0.2s;
+}
+
+.ai-mode-border:hover {
+  border-color: transparent;
+  background:
+    linear-gradient(var(--color-zoogle-surface), var(--color-zoogle-surface)) padding-box,
+    conic-gradient(
+      from var(--ai-angle),
+      var(--color-zoogle-blue),
+      var(--color-zoogle-green),
+      var(--color-zoogle-yellow),
+      var(--color-zoogle-red),
+      var(--color-zoogle-blue)
+    ) border-box;
+  animation: ai-border-spin 2.5s linear infinite;
+}
+
+.ai-mode-border:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-zoogle-surface), 0 0 0 4px var(--color-zoogle-link);
 }
