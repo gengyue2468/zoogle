@@ -57,24 +57,24 @@ export default function SearchBarMobileDialog({
           autoFocus
         />
       </div>
-      <div className="flex-1 min-h-0 overflow-auto px-0">
+      <div className="flex-1 min-h-0 flex flex-col overflow-hidden px-0">
         {history.length > 0 ? (
           <>
-            <p className="text-sm text-zoogle-text-secondary px-4 pt-3 pb-1">
+            <p className="text-sm text-zoogle-text-secondary px-4 pt-3 pb-1 shrink-0">
               {t("search.searchHistory")}
             </p>
-            <SearchHistoryList
-              history={history}
-              onSelect={handleSelect}
-              onRemove={removeFromHistory}
-              onClear={() => clearHistory()}
-              variant="fullscreen"
-            />
+            <div className="flex-1 min-h-0 overflow-y-auto">
+              <SearchHistoryList
+                history={history}
+                onSelect={handleSelect}
+                onRemove={removeFromHistory}
+                onClear={() => clearHistory()}
+                variant="fullscreen"
+              />
+            </div>
           </>
-        ) : (
-          null
-        )}
-        <div className="pt-2 pb-6">
+        ) : null}
+        <div className="shrink-0 pt-2 pb-6">
           <TrendingSearches variant="inline" />
         </div>
       </div>

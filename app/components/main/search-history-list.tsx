@@ -7,7 +7,6 @@ interface SearchHistoryListProps {
   onRemove: (item: string) => void;
   onClear: () => void;
   variant?: "dropdown" | "fullscreen";
-  /** 桌面端下拉时展示的 trending 项，融入在列表底部 */
   trendingItems?: string[];
   onTrendingSelect?: (item: string) => void;
 }
@@ -30,7 +29,13 @@ export default function SearchHistoryList({
     onTrendingSelect;
 
   return (
-    <div className="max-h-72 overflow-y-auto">
+    <div
+      className={
+        isFullscreen
+          ? "min-h-0"
+          : "max-h-72 overflow-y-auto"
+      }
+    >
       {history.length !== 0 && (
         <ul
           className={
