@@ -3,10 +3,9 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchHistoryStore } from "~/store/search-history";
+import { getInternalSearchUrl } from "~/store/settings";
 import { useTrendingSearches, shuffleTrendingItems } from "~/data/trending-searches";
 import { TrendIcon } from "../icons";
-
-const GOOGLE_SEARCH_URL = "https://www.google.com/search";
 
 const INITIAL_COUNT = 6;
 
@@ -51,7 +50,7 @@ export default function TrendingSearches({ variant = "standalone" }: TrendingSea
         {items.map((query) => (
           <a
             key={query}
-            href={`${GOOGLE_SEARCH_URL}?q=${encodeURIComponent(query)}`}
+            href={getInternalSearchUrl({ q: query })}
             onClick={() => addHistory(query)}
             className={
               isInline

@@ -5,11 +5,24 @@ const STORAGE_KEY = "zoogle-settings";
 
 export type SearchEngineId = "google" | "duckduckgo" | "bing";
 
-const SEARCH_ENGINE_URLS: Record<SearchEngineId, string> = {
+export const SEARCH_ENGINE_URLS: Record<SearchEngineId, string> = {
   google: "https://www.google.com/search",
   duckduckgo: "https://duckduckgo.com/",
   bing: "https://www.bing.com/search",
 };
+
+export function getInternalSearchUrl(params: {
+  q?: string;
+  feelingLucky?: boolean;
+}): string {
+  const { q = "", feelingLucky = false } = params;
+  const sp = new URLSearchParams();
+  const trimmed = String(q).trim();
+  if (trimmed) sp.set("q", trimmed);
+  if (feelingLucky) sp.set("btnI", "1");
+  const s = sp.toString();
+  return s ? `/?${s}` : "/";
+}
 
 interface SettingsState {
   searchEngine: SearchEngineId;
@@ -37,7 +50,7 @@ export const useSettingsStore = create<SettingsState>()(
         if (engine === "bing") {
           return q ? `${base}?q=${encodeURIComponent(q)}` : base;
         }
-        // google
+
         if (feelingLucky && q) {
           return `${base}?q=${encodeURIComponent(q)}&btnI=1`;
         }
@@ -51,5 +64,3 @@ export const useSettingsStore = create<SettingsState>()(
     }
   )
 );
-
-export { SEARCH_ENGINE_URLS };

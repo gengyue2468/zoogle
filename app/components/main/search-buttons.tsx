@@ -1,21 +1,20 @@
 import { useTranslation } from "react-i18next";
 import { useSearchStore } from "../../store/search";
 import { useSearchHistoryStore } from "../../store/search-history";
-import { useSettingsStore } from "../../store/settings";
+import { getInternalSearchUrl } from "../../store/settings";
 
 export default function SearchButtons() {
   const { t } = useTranslation();
   const imageSearchMode = useSearchStore((s) => s.imageSearchMode);
   const searchValue = useSearchStore((s) => s.searchValue);
   const addHistory = useSearchHistoryStore((s) => s.addHistory);
-  const getSearchUrl = useSettingsStore((s) => s.getSearchUrl);
   const buttonStyle =
     "bg-zoogle-button-bg border border-transparent hover:border-zoogle-button-border rounded-lg px-4 py-1.75";
 
   const handleFeelingLucky = () => {
     const q = searchValue.trim() || "";
     addHistory(q);
-    window.location.href = getSearchUrl({ q, feelingLucky: true });
+    window.location.href = getInternalSearchUrl({ q, feelingLucky: true });
   };
 
   if (imageSearchMode) return null;

@@ -6,6 +6,7 @@ import SearchHistoryList from "./search-history-list";
 import TrendingSearches from "./trending-searches";
 import { useSearchStore } from "../../store/search";
 import { useSearchHistoryStore } from "../../store/search-history";
+import { getInternalSearchUrl } from "../../store/settings";
 
 interface SearchBarMobileDialogProps {
   open: boolean;
@@ -20,12 +21,13 @@ export default function SearchBarMobileDialog({
   const searchValue = useSearchStore((s) => s.searchValue);
   const setSearchValue = useSearchStore((s) => s.setSearchValue);
   const history = useSearchHistoryStore((s) => s.history);
+  const addHistory = useSearchHistoryStore((s) => s.addHistory);
   const removeFromHistory = useSearchHistoryStore((s) => s.removeFromHistory);
   const clearHistory = useSearchHistoryStore((s) => s.clearHistory);
 
   const handleSelect = (item: string) => {
-    setSearchValue(item);
-    onOpenChange(false);
+    addHistory(item);
+    window.location.href = getInternalSearchUrl({ q: item });
   };
 
   const handleClose = () => onOpenChange(false);
@@ -63,7 +65,7 @@ export default function SearchBarMobileDialog({
             <p className="text-sm text-zoogle-text-secondary px-4 pt-3 pb-1 shrink-0">
               {t("search.searchHistory")}
             </p>
-            <div className="flex-1 min-h-0 overflow-y-auto">
+            <div>
               <SearchHistoryList
                 history={history}
                 onSelect={handleSelect}

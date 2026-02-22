@@ -33,7 +33,7 @@ export default function SearchHistoryList({
       className={
         isFullscreen
           ? "min-h-0"
-          : "max-h-72 overflow-y-auto"
+          : ""
       }
     >
       {history.length !== 0 && (

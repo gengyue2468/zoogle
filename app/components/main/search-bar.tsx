@@ -16,7 +16,7 @@ import SearchHistoryList from "./search-history-list";
 import SearchBarMobileDialog from "./search-bar-mobile-dialog";
 import { useSearchStore } from "../../store/search";
 import { useSearchHistoryStore } from "../../store/search-history";
-import { useSettingsStore } from "../../store/settings";
+import { getInternalSearchUrl } from "../../store/settings";
 import { useTrendingSearches } from "~/data/trending-searches";
 
 function useIsMobile() {
@@ -79,7 +79,6 @@ export default function SearchBar() {
   const addHistory = useSearchHistoryStore((s) => s.addHistory);
   const removeFromHistory = useSearchHistoryStore((s) => s.removeFromHistory);
   const clearHistory = useSearchHistoryStore((s) => s.clearHistory);
-  const getSearchUrl = useSettingsStore((s) => s.getSearchUrl);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -200,12 +199,13 @@ export default function SearchBar() {
         {showDropdown && (
           <div
             ref={dropdownRef}
-            className="absolute left-0 right-0 top-full z-10 border border-t border-zoogle-border rounded-b-3xl bg-zoogle-surface-elevated shadow-lg overflow-hidden"
+            className="absolute left-0 right-0 top-full z-10 border border-t border-zoogle-border rounded-b-3xl bg-zoogle-surface-elevated shadow-lg overflow-hidden max-h-60 xl:max-h-72 overflow-y-auto"
           >
             <SearchHistoryList
               history={history}
               onSelect={(item) => {
-                window.location.href = getSearchUrl({ q: item });
+                addHistory(item);
+                window.location.href = getInternalSearchUrl({ q: item });
               }}
               onRemove={removeFromHistory}
               onClear={() => clearHistory()}
@@ -213,7 +213,7 @@ export default function SearchBar() {
               trendingItems={desktopTrending}
               onTrendingSelect={(item) => {
                 addHistory(item);
-                window.location.href = getSearchUrl({ q: item });
+                window.location.href = getInternalSearchUrl({ q: item });
               }}
             />
           </div>

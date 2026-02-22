@@ -9,7 +9,9 @@ export default function Hero() {
 
   return (
     <div className="relative w-full max-w-72 md:max-w-md mx-auto">
-      <h1 className="text-6xl md:text-8xl font-bold text-center">{t("hero.title")}</h1>
+      <h1 className="text-6xl md:text-8xl font-bold text-center">
+        {t("hero.title")}
+      </h1>
       <button
         type="button"
         onClick={() => setShareOpen(true)}

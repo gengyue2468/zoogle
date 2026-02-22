@@ -90,8 +90,18 @@
     "nickMascotAlt": "Zoogle 吉祥物 Nick"
   },
   "apps": {
+    "account": "账号",
+    "zmail": "Zmail",
+    "maps": "地图",
+    "photos": "相册",
+    "youtube": "YouTube",
+    "drive": "云端硬盘",
+    "meet": "Meet",
+    "assistant": "Zoogle 助理",
+    "translate": "翻译",
     "loadingError": "抱歉，出了点问题",
-    "retry": "重试"
+    "retry": "重试",
+    "appMore": "更多 Zoogle 应用/产品"
   },
   "hero": {
     "title": "Zoogle",

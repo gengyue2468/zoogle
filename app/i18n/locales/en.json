@@ -90,8 +90,18 @@
     "nickMascotAlt": "Nick the Zoogle mascot"
   },
   "apps": {
+    "account": "Account",
+    "zmail": "Zmail",
+    "maps": "Google Maps",
+    "photos": "Google Photos",
+    "youtube": "YouTube",
+    "drive": "Google Drive",
+    "meet": "Google Meet",
+    "assistant": "Google Assistant",
+    "translate": "Google Translate",
     "loadingError": "Sorry, something went wrong",
-    "retry": "Retry"
+    "retry": "Retry",
+    "appMore": "More from Zoogle"
   },
   "hero": {
     "title": "Zoogle",

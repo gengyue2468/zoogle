@@ -102,7 +102,7 @@ function SwitchToZoogleToastContent({ toast }: { toast: { id: string } }) {
         <div className="flex items-start gap-3">
           <div aria-hidden>
             <img
-              src="/static/nick.jpeg"
+              src="/static/nick.webp"
               alt={t("toast.nickMascotAlt")}
               className="size-12 rounded-full object-center object-cover"
             />
