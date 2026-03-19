@@ -59,6 +59,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
         <Meta />
         <Links />
+        <script
+          defer
+          src="https://umami.gengyue.site/script.js"
+          data-website-id="8d3a1723-6205-43e9-a9cd-84a588ac2685"
+        ></script>
       </head>
       <body>
         <div className="root">{children}</div>
@@ -92,7 +97,9 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
       line2 = (
         <>
           The requested URL {url} was not found on this server.{" "}
-          <span className="text-zoogle-text-secondary">That&apos;s all we know.</span>
+          <span className="text-zoogle-text-secondary">
+            That&apos;s all we know.
+          </span>
         </>
       );
     } else {
@@ -123,8 +130,11 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
             <p className="mt-4 leading-relaxed roboto">
               {line2}
               {showThatsAllWeKnow && (
-                <>{" "}
-                  <span className="text-zoogle-text-secondary">That&apos;s all we know.</span>
+                <>
+                  {" "}
+                  <span className="text-zoogle-text-secondary">
+                    That&apos;s all we know.
+                  </span>
                 </>
               )}
             </p>
