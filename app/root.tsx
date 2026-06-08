@@ -61,7 +61,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
         <script
           defer
-          src="https://umami.gengyue.site/script.js"
+          src="https://u.gy.run/script.js"
           data-website-id="8d3a1723-6205-43e9-a9cd-84a588ac2685"
         ></script>
       </head>
